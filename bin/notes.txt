@@ -1,0 +1,33 @@
+Company Class:
+
+The Company class represents a shared resource with an integer n and a boolean flag f.
+The produce_item method is used by the producer to set the value of n when it produces an item.
+The consume_item method is used by the consumer to retrieve and return the value of n.
+Both methods are synchronized, ensuring that only one thread can execute them at a time.
+The f flag is used to indicate which thread (producer or consumer) has the chance to execute.
+
+Producer Class:
+
+The Producer class extends the Thread class and represents a producer thread.
+It takes an instance of the Company class as a parameter.
+In its run method, the producer produces an item (an integer i) by calling the produce_item method of the Company class.
+It then sleeps for 1 second to simulate some work before producing the next item.
+
+Consumer Class:
+
+The Consumer class extends the Thread class and represents a consumer thread.
+Similar to the Producer class, it takes an instance of the Company class as a parameter.
+In its run method, the consumer consumes items by calling the consume_item method of the Company class.
+It then sleeps for 2 seconds to simulate some work before consuming the next item.
+
+Main Class:
+
+The Main class serves as the entry point of the program.
+It creates an instance of the Company class (which represents the shared resource) and two threads: one Producer and one Consumer.
+Both the Producer and Consumer threads are started, and they will operate concurrently.
+
+The program creates a shared resource represented by the Company class.
+The Producer and Consumer threads concurrently produce and consume items from this shared resource.
+Synchronization is used to ensure that the producer and consumer threads take turns and don't interfere with each other.
+The producer produces items continuously, while the consumer consumes items at a slower rate, as indicated by the sleep durations in their respective run methods.
+This code effectively demonstrates the classic Producer-Consumer problem and how to coordinate access to shared resources using synchronization in a multithreaded environment.
